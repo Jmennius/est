@@ -63,6 +63,18 @@ the full chain, we don't use the `-rootout` option here:
 
     user@host:$ estclient cacerts -server localhost:8443 -explicit anchor.pem -out cacerts.pem
 
+It is also possible to write every CA certificate to individual file
+with `-separate` flag, for example:
+
+    user@host:$ estclient cacerts -server localhost:8443 -explicit anchor.pem -out cacerts.pem -separate
+
+Will create `cacerts-1.pem`, `cacerts-2.pem` and so on containing individual
+CA certificates.
+
+There is also an option to filter and output only root (self-signed)
+or intermediate certificates with flags `-roots` and `-intermediates`
+respectively.
+
 ### Enrolling with an existing private key
 
 First we generate a new private key, here using openssl:
